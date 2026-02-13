@@ -1,0 +1,7 @@
+sources:
+  - name: raw_data
+    description: Raw data pulled from the warehouse (BigQuery)
+    database: service-requests-chicago
+    schema: srchicago_raw_dataset
+    tables:
+      - name: srchicago_311_raw
