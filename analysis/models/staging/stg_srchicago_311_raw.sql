@@ -13,29 +13,29 @@ renamed as (
         
         -- Timestamps
         -- Format looks like: 2024-10-23 09:23:06 UTC
-        cast(created_date as Timestamps) as created_date,
-        cast(last_modified_date as Timestamps) as last_modified_date,
-        cast(closed_date as Timestamps) as closed_date,
+        safe_cast(created_date as timestamp) as created_date,
+        safe_cast(last_modified_date as timestamp) as last_modified_date,
+        safe_cast(closed_date as timestamp) as closed_date,
 
-        cast(created_hour as integer) as created_hour, -- 24 hour
-        cast(created_day_of_week as integer) as created_day_of_week, -- 1 to 7
-        cast(created_month as integer) as created_month, -- 1 to 12
+        safe_cast(created_hour as int64) as created_hour, -- 24 hour
+        safe_cast(created_day_of_week as int64) as created_day_of_week, -- 1 to 7
+        safe_cast(created_month as int64) as created_month, -- 1 to 12
 
         -- Geospatial Information
         cast(street_address as string) as street_address,
-        cast(zip_code as integer) as integer,
-        cast(latitude as float) as float,
-        cast(longitude as float) as float,
+        safe_cast(zip_code as int64) as zip_code,
+        safe_cast(latitude as float64) as latitude,
+        safe_cast(longitude as float64) as longitude,
 
         -- Aggregation by Week
-        date_trunk(date(cast(created_date as Timestamps)), week(sunday)) as created_week
+        date_trunc(date(safe_cast(created_date as timestamp)), week(sunday)) as created_week,
 
         -- Processing Hours
         case
             when closed_date is null then null
             else timestamp_diff(
-                cast(closed_date as Timestamps),
-                cast(created_date as Timestamps),
+                safe_cast(closed_date as timestamp),
+                safe_cast(created_date as timestamp),
                 hour
             )
         end as processing_hours
