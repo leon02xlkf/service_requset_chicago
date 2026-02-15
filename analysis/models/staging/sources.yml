@@ -4,4 +4,4 @@ sources:
     database: service-requests-chicago
     schema: srchicago_raw_dataset
     tables:
-      - name: srchicago_311_raw
+      - name: srchicago_311_v2
