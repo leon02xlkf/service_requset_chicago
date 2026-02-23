@@ -5,5 +5,5 @@ This project builds an end-to-end data pipeline around the Chicago 311 Service R
 Link to the dashboard: [TO BE UPDATED]
 
 ## Infrastructure
-![Project Architecture Diagram](images/GCP Pipeline Flow.png)
+![Project Architecture Diagram](images/GCP_Pipeline_Flow.png)
 
