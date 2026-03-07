@@ -5,8 +5,8 @@ API ingestion → Data lake → Data warehouse → Transformation → BI visuali
 
 ## Architecture & Dashboard Overview
 ![Project Architecture Diagram](images/GCP_Pipeline_Flow.png)
-
-Link to the dashboard: [TO BE UPDATED]
+[Link to the Dashboard](https://lookerstudio.google.com/reporting/43f750f9-0537-4fd7-b4a3-f7c0138d32b3)
+![Dashboard](images/dashboard.png)
 
 ## Data Source
 The dataset of this project is [Chicago 311 Service Requests](https://data.cityofchicago.org/Service-Requests/311-Service-Requests/v6vf-nfxy/about_data) from Chicago Data Portal. The data is continuously updated, making it suitable for incremental design. In this project, Socrata Open Data API (SODA) is implemented for data extraction into the data lake.
