@@ -1,6 +1,7 @@
 with base as (
   select created_week
   from {{ ref('stg_srchicago_311_raw') }}
+  where created_week >= date('2026-01-01')
 ),
 
 weekly as (
@@ -16,6 +17,7 @@ select
     weekly_requests
 from weekly
 order by created_week
+
 
 -- Moving Average
 
